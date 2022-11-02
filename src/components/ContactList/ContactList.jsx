@@ -1,9 +1,10 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
+import css from './ContactList.module.css';
 
 const ContactList = ({ contacts, findContact, deleteContacts }) => {
-  return (
-    <ul>
+    return (
+    <ul className={css.contacts}>
       {findContact
         ? findContact.map(({ id, name, number }) => (
             <li key={id}>
@@ -20,7 +21,12 @@ const ContactList = ({ contacts, findContact, deleteContacts }) => {
               <p>
                 {name}: {number}
               </p>
-              <button type="button" name={id} onClick={deleteContacts}>
+              <button
+                className={css.delete}
+                type="button"
+                name={id}
+                onClick={deleteContacts}
+              >
                 Delete
               </button>
             </li>

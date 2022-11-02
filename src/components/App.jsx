@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ContactList from './ContactList/ContactList';
 import ContactForm from './ContactForm/ContactForm';
 import { Filter } from './Filter/Filter';
+import css from './App.module.css';
 
 export class App extends Component {
   state = {
@@ -54,10 +55,10 @@ export class App extends Component {
 
     return (
       <div>
-        <h1>Phonebook</h1>
+        <h1 className={css.setion_title}>Phonebook</h1>
         <ContactForm newContact={this.newContact} />
         <Filter onChange={this.onChangeFilter} />
-        <h2>Contacts</h2>
+        <h2 className={css.setion_title}>Contacts</h2>
         <ContactList
           findContact={findContact}
           contacts={visibleContacts}
