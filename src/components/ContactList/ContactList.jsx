@@ -3,7 +3,7 @@ import { PropTypes } from 'prop-types';
 import css from './ContactList.module.css';
 
 const ContactList = ({ contacts, findContact, deleteContacts }) => {
-    return (
+  return (
     <ul className={css.contacts}>
       {findContact
         ? findContact.map(({ id, name, number }) => (
@@ -11,7 +11,11 @@ const ContactList = ({ contacts, findContact, deleteContacts }) => {
               <p>
                 {name}: {number}
               </p>
-              <button type="button" name={id} onClick={deleteContacts}>
+              <button
+                type="button"
+                name={id}
+                onClick={() => deleteContacts(id)}
+              >
                 Delete
               </button>
             </li>

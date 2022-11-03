@@ -40,12 +40,10 @@ export class App extends Component {
     }
     return false;
   };
-  deleteContacts = event => {
-    const index = this.state.contacts.findIndex(
-      x => x.id === event.target.name
-    );
-
-    this.setState(this.state.contacts.splice(index, 1));
+  deleteContacts = id => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== id),
+    }));
   };
 
   render() {
